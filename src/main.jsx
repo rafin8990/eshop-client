@@ -4,11 +4,14 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Shared/Route.jsx";
 import Home from "./pages/HomePage/Home.jsx";
+import { CartProvider } from "./Provider/CartProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <Home />
-    </RouterProvider>
+    <CartProvider>
+      <RouterProvider router={router}>
+        <Home />
+      </RouterProvider>
+    </CartProvider>
   </React.StrictMode>
 );

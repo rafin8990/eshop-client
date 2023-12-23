@@ -3,6 +3,7 @@ import Home from "../pages/HomePage/Home";
 import Registration from "../pages/Registration/Registration";
 import Login from "../pages/LoginPage/Login";
 import Main from "../Layouts/Main/Main";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,9 @@ export const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/productDetails/:id",
+        path: "/product/:id",
+        element:<ProductDetails></ProductDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
       },
     ],
   },

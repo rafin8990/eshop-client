@@ -1,1 +1,57 @@
-[{}]
+[
+  {
+    "id": "1",
+    "name": "Men's Jacket",
+    "varient_one": "https://i0.wp.com/www.pristineshop.com.bd/wp-content/uploads/2023/10/318552819_113518331596042_7190377783846858986_n.jpg?fit=1500%2C1500&ssl=1",
+    "varient_two": "https://i0.wp.com/www.pristineshop.com.bd/wp-content/uploads/2023/12/winter-premium-jacket-by-pristine-Chocolate-Front.jpg?resize=1500%2C1500&ssl=1",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "Price": "2000",
+    "details": "Introducing our Men Full Sleeve Life and Death Hooded Sweatshirt, perfect for those who want to make a statement with their fashion choices. Made with high-quality cotton, this sweatshirt is both comfortable and durable, making it a great addition to any wardrobe. The long sleeve length provides extra coverage, while the hood adds an extra layer of warmth on chilly days. The unique design features a bold Life and Death graphic, making it a standout piece in any outfit. Whether you're running errands or hanging out with friends, this sweatshirt is sure to turn heads",
+    "meterial":"Cotton",
+    "brand":"Top MEN"
+  },
+  {
+    "id": "2",
+    "name": "Men's Jacket Special",
+    "varient_one": "https://static-01.daraz.com.bd/p/951548401c73eb6928739afb3bf00b69.jpg",
+    "varient_two": "https://static-01.daraz.com.bd/p/b40dfdfe763ecabca799ae7698404a2b.jpg_750x400.jpg_.webp",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "Price": "1000",
+    "details": "Introducing our Men Full Sleeve Life and Death Hooded Sweatshirt, perfect for those who want to make a statement with their fashion choices. Made with high-quality cotton, this sweatshirt is both comfortable and durable, making it a great addition to any wardrobe. The long sleeve length provides extra coverage, while the hood adds an extra layer of warmth on chilly days. The unique design features a bold Life and Death graphic, making it a standout piece in any outfit. Whether you're running errands or hanging out with friends, this sweatshirt is sure to turn heads",
+    "meterial":"Cotton",
+    "brand":"Top MEN"
+  },
+  {
+    "id": "3",
+    "name": "Jacket for men",
+    "varient_one": "https://marksandspencer.com.ph/cdn/shop/products/SD_01_T59_1408J_Y0_X_EC_90.jpg?v=1671089721",
+    "varient_two": "https://assets.ajio.com/medias/sys_master/root/20220830/nkEy/630d4e1cf997dd1f8dc5be3d/-288Wx360H-464902403-navy-MODEL.jpg",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "Price": "2000",
+    "details": "Introducing our Men Full Sleeve Life and Death Hooded Sweatshirt, perfect for those who want to make a statement with their fashion choices. Made with high-quality cotton, this sweatshirt is both comfortable and durable, making it a great addition to any wardrobe. The long sleeve length provides extra coverage, while the hood adds an extra layer of warmth on chilly days. The unique design features a bold Life and Death graphic, making it a standout piece in any outfit. Whether you're running errands or hanging out with friends, this sweatshirt is sure to turn heads",
+    "meterial":"Cotton",
+    "brand":"Top MEN"
+  },
+  {
+    "id": "4",
+    "name": "Men's Jacket",
+    "varient_one": "https://www.craftclothing.ph/cdn/shop/products/VT07-RB-F_600x.png?v=1625832832",
+    "varient_two": "https://d1bl7s2s4ft3gc.cloudfront.net/public/abstract_product_images/1316/FwuxTjhC5YQbZEZQyefevTWujXIGgx0S5FV5D1uw.jpeg",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "Price": "2000",
+    "details": "Introducing our Men Full Sleeve Life and Death Hooded Sweatshirt, perfect for those who want to make a statement with their fashion choices. Made with high-quality cotton, this sweatshirt is both comfortable and durable, making it a great addition to any wardrobe. The long sleeve length provides extra coverage, while the hood adds an extra layer of warmth on chilly days. The unique design features a bold Life and Death graphic, making it a standout piece in any outfit. Whether you're running errands or hanging out with friends, this sweatshirt is sure to turn heads",
+    "meterial":"Cotton",
+    "brand":"Top MEN"
+  },
+  {
+    "id": "5",
+    "name": "Men's Jacket",
+    "varient_one": "https://www.yoox.com/images/items/16/16168520DF_14_f.jpg?impolicy=crop&width=387&height=490",
+    "varient_two": "https://www.yoox.com/images/items/16/16290792HG_14_f.jpg?impolicy=crop&width=387&height=490",
+    "size": ["S", "M", "L", "XL", "XXL"],
+    "Price": "000",
+    "details": "Introducing our Men Full Sleeve Life and Death Hooded Sweatshirt, perfect for those who want to make a statement with their fashion choices. Made with high-quality cotton, this sweatshirt is both comfortable and durable, making it a great addition to any wardrobe. The long sleeve length provides extra coverage, while the hood adds an extra layer of warmth on chilly days. The unique design features a bold Life and Death graphic, making it a standout piece in any outfit. Whether you're running errands or hanging out with friends, this sweatshirt is sure to turn heads",
+    "meterial":"Cotton",
+    "brand":"Top MEN"
+  }
+]
