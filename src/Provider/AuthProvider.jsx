@@ -4,7 +4,6 @@ export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
- 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const register = (name, email, password) => {
@@ -15,13 +14,12 @@ export const AuthProvider = ({ children }) => {
       },
       body: JSON.stringify({ name, email, password }),
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.acknowledged){
-        alert('Registration Successfully')
-      }
-    })
-
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          alert("Registration Successfully");
+        }
+      });
   };
 
   const login = (email, password) => {
@@ -31,34 +29,42 @@ export const AuthProvider = ({ children }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
-    });
-    setIsAuthenticated(true);
-    alert("Login successful");
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+          setIsAuthenticated(true);
+          alert("Login successful");
+        
+      });
   };
 
-  const logout = () => {
-    fetch('http://localhost:5000/logout');
-      setIsAuthenticated(false);
-      alert('Logout successful');
-  };
-useEffect(()=>{
-  checkLoginStatus()
-},[])
-  
+  useEffect(() => {
+    checkLoginStatus();
+  }, []);
+
   const checkLoginStatus = async () => {
     try {
-      const response = await fetch('http://localhost:5000/checkLogin');
+      const response = await fetch("http://localhost:5000/checkLogin");
       const data = await response.json();
-      if (response.status === 200 && data.status === 'authenticated') {
+      if (response.status === 200 && data.status === "authenticated") {
         setIsAuthenticated(true);
       }
     } catch (error) {
-      console.error('Error checking login status:', error);
+      console.error("Error checking login status:", error);
     }
   };
 
+  const logout = () => {
+    fetch("http://localhost:5000/logout");
+    setIsAuthenticated(false);
+    alert("Logout successful");
+  };
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, register,checkLoginStatus }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, login, logout, register, checkLoginStatus }}
+    >
       {children}
     </AuthContext.Provider>
   );

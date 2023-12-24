@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const navigate=useNavigate()
   const {login}=useContext(AuthContext);
 
   
@@ -13,6 +14,7 @@ const Login = () => {
     const email=form.email.value;
     const password=form.password.value;
     login(email, password)
+    navigate('/')
   }
   return (
     <div className="min-h-screen flex justify-center items-center">

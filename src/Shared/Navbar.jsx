@@ -56,7 +56,7 @@ const Navbar = () => {
             </li>
             <li>
               {isAuthenticated ? (
-                <p onClick={handleLogOut()} className="text-xl font-semibold">
+                <p onClick={handleLogOut} className="text-xl font-semibold">
                   Log Out
                 </p>
               ) : (
@@ -82,7 +82,7 @@ const Navbar = () => {
           </li>
           <li>
             {isAuthenticated ? (
-              <p onClick={handleLogOut()} className="text-xl font-semibold">
+              <p onClick={handleLogOut} className="text-xl font-semibold">
                 Log Out
               </p>
             ) : (
