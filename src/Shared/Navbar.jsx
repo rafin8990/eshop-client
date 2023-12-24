@@ -1,23 +1,29 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Provider/CartProvider";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { cartData ,updateCartData } = useContext(CartContext);
- const handleDelete=(id)=>{
-  fetch(`http://localhost:5000/cart/${id}`,{
-    method:"DELETE"
-  })
-  .then(res=>res.json())
-  .then(data=>{
-    if(data.deletedCount){
-      fetch("http://localhost:5000/carts")
+  const { cartData, updateCartData } = useContext(CartContext);
+  const { logout, isAuthenticated } = useContext(AuthContext);
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/cart/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          fetch("http://localhost:5000/carts")
             .then((res) => res.json())
             .then((updatedData) => updateCartData(updatedData));
-      alert('product deleted successFully')
-    }
-  })
- }
+          alert("product deleted successFully");
+        }
+      });
+  };
+
+  const handleLogOut = () => {
+    logout();
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -49,9 +55,15 @@ const Navbar = () => {
               </p>
             </li>
             <li>
-              <p className="text-xl font-semibold">
-                <Link to="/login">Login</Link>
-              </p>
+              {isAuthenticated ? (
+                <p onClick={handleLogOut()} className="text-xl font-semibold">
+                  Log Out
+                </p>
+              ) : (
+                <p className="text-xl font-semibold">
+                  <Link to="/login">Login</Link>
+                </p>
+              )}
             </li>
           </ul>
         </div>
@@ -69,9 +81,15 @@ const Navbar = () => {
             </p>
           </li>
           <li>
-            <p className="text-xl font-semibold">
-              <Link to="/login">Login</Link>
-            </p>
+            {isAuthenticated ? (
+              <p onClick={handleLogOut()} className="text-xl font-semibold">
+                Log Out
+              </p>
+            ) : (
+              <p className="text-xl font-semibold">
+                <Link to="/login">Login</Link>
+              </p>
+            )}
           </li>
         </ul>
       </div>
@@ -104,19 +122,23 @@ const Navbar = () => {
               {cartData.map((data) => (
                 <div className="mt-5" key={data?._id}>
                   <div className="flex">
-                    <img
-                      className="w-20 rounded"
-                      src={data?.image}
-                      alt=""
-                    />
+                    <img className="w-20 rounded" src={data?.image} alt="" />
                     <div>
-                    <p className="text-xl text-white">Price:{data?.price}</p>
-                    <p className="text-xl text-white">Quantity:{data?.quantity}</p>
-                    <button className="btn mt-3 btn-primary" onClick={()=>handleDelete(data?._id)}>Delete Item</button>
-                    
+                      <p className="text-xl text-white">Price:{data?.price}</p>
+                      <p className="text-xl text-white">
+                        Quantity:{data?.quantity}
+                      </p>
+                      <button
+                        className="btn mt-3 btn-primary"
+                        onClick={() => handleDelete(data?._id)}
+                      >
+                        Delete Item
+                      </button>
                     </div>
                     <div>
-                      <h1 className="text-xl text-white">Total Price: {data?.price * data?.quantity}</h1>
+                      <h1 className="text-xl text-white">
+                        Total Price: {data?.price * data?.quantity}
+                      </h1>
                     </div>
                   </div>
                 </div>

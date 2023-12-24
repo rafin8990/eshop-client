@@ -1,21 +1,64 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
+ 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = () => {
+  const register = (name, email, password) => {
+    fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.acknowledged){
+        alert('Registration Successfully')
+      }
+    })
+
+  };
+
+  const login = (email, password) => {
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
     setIsAuthenticated(true);
+    alert("Login successful");
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
+    fetch('http://localhost:5000/logout');
+      setIsAuthenticated(false);
+      alert('Logout successful');
+  };
+useEffect(()=>{
+  checkLoginStatus()
+},[])
+  
+  const checkLoginStatus = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/checkLogin');
+      const data = await response.json();
+      if (response.status === 200 && data.status === 'authenticated') {
+        setIsAuthenticated(true);
+      }
+    } catch (error) {
+      console.error('Error checking login status:', error);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, register,checkLoginStatus }}>
       {children}
     </AuthContext.Provider>
   );
